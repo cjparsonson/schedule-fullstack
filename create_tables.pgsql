@@ -1,0 +1,32 @@
+CREATE TABLE employee (
+    id UUID GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    minHours INTEGER NOT NULL,
+    maxHours INTEGER NOT NULL,
+)
+
+CREATE TABLE shift (
+    id UUID GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    employeeId UUID REFERENCES employee(id),
+    weekId UUID REFERENCES week(id),
+    startTime TIMESTAMP WITH TIME ZONE NOT NULL,
+    endTime TIMESTAMP WITH TIME ZONE NOT NULL,
+    status VARCHAR(20)
+)
+
+CREATE TABLE week (
+    id UUID GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    startDate DATE NOT NULL,
+    endDate DATE NOT NULL,
+    requiredHours INTEGER,
+    assignedHours INTEGER,
+    monthId UUID REFERENCES month(id)
+)
+
+CREATE TABLE month (
+    id UUID GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    startDate DATE NOT NULL,
+    endDate DATE NOT NULL,
+    requiredHours INTEGER,
+    assignedHours INTEGER,
+)
