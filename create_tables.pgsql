@@ -1,32 +1,32 @@
 CREATE TABLE employee (
-    id UUID GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    minHours INTEGER NOT NULL,
-    maxHours INTEGER NOT NULL,
+    employee_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name VARCHAR(500) NOT NULL,
+    min_hours INTEGER NOT NULL,
+    max_hours INTEGER NOT NULL
 )
 
 CREATE TABLE shift (
-    id UUID GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    employeeId UUID REFERENCES employee(id),
-    weekId UUID REFERENCES week(id),
-    startTime TIMESTAMP WITH TIME ZONE NOT NULL,
-    endTime TIMESTAMP WITH TIME ZONE NOT NULL,
-    status VARCHAR(20)
+    shift_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    employee_id BIGINT REFERENCES employee(employee_id),
+    week_id BIGINT REFERENCES week(week_id),
+    start_time TIMESTAMP WITH TIME ZONE NOT NULL,
+    end_time TIMESTAMP WITH TIME ZONE NOT NULL,
+    status VARCHAR(500)
 )
 
 CREATE TABLE week (
-    id UUID GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    startDate DATE NOT NULL,
-    endDate DATE NOT NULL,
-    requiredHours INTEGER,
-    assignedHours INTEGER,
-    monthId UUID REFERENCES month(id)
+    week_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL,
+    required_hours INTEGER,
+    assigned_hours INTEGER,
+    month_id BIGINT REFERENCES month(month_id)
 )
 
 CREATE TABLE month (
-    id UUID GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    startDate DATE NOT NULL,
-    endDate DATE NOT NULL,
-    requiredHours INTEGER,
-    assignedHours INTEGER,
+    month_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL,
+    required_hours INTEGER,
+    assigned_hours INTEGER
 )
