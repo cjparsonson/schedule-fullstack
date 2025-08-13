@@ -6,6 +6,10 @@ app.get('/', (req, res) => {
     res.send('Hello World from Express!');
 });
 
-app.listen(3000, () => {
+app.get('/custom-endpoint', (req, res) => {
+    res.send('You have reached a custom endpoint!');
+});
+
+app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
