@@ -1,9 +1,9 @@
 CREATE TABLE employee (
     employee_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name VARCHAR(500) NOT NULL,
-    min_hours INTEGER NOT NULL,
-    max_hours INTEGER NOT NULL
-)
+    min_hours NUMERIC(4, 2) NOT NULL,
+    max_hours NUMERIC(4, 2) NOT NULL
+);
 
 CREATE TABLE shift (
     shift_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -12,21 +12,21 @@ CREATE TABLE shift (
     start_time TIMESTAMP WITH TIME ZONE NOT NULL,
     end_time TIMESTAMP WITH TIME ZONE NOT NULL,
     status VARCHAR(500)
-)
+);
 
 CREATE TABLE week (
     week_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     start_date DATE NOT NULL,
     end_date DATE NOT NULL,
-    required_hours INTEGER,
-    assigned_hours INTEGER,
+    required_hours NUMERIC(6, 2),
+    assigned_hours NUMERIC(6, 2),
     month_id BIGINT REFERENCES month(month_id)
-)
+);
 
 CREATE TABLE month (
     month_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     start_date DATE NOT NULL,
     end_date DATE NOT NULL,
-    required_hours INTEGER,
-    assigned_hours INTEGER
-)
+    required_hours NUMERIC(6, 2),
+    assigned_hours NUMERIC(6, 2)
+);

@@ -1,0 +1,23 @@
+{
+  "name": "schedule-fullstack",
+  "version": "1.0.0",
+  "description": "A fullstack web application for managing employee shifts, built with HTML, CSS, JavaScript, and PostgreSQL.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cjparsonson/schedule-fullstack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cjparsonson/schedule-fullstack/issues"
+  },
+  "homepage": "https://github.com/cjparsonson/schedule-fullstack#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
