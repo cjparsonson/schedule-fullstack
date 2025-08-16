@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A fullstack web application for managing employee shifts, built with HTML, CSS, JavaScript, and PostgreSQL.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/cjparsonson/schedule-fullstack#readme",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "pg": "^8.16.3"
   }
 }
